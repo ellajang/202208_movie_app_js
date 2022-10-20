@@ -1,21 +1,19 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
+import { HashRouter, Route } from "react-router-dom";
 import Detail from "./routes/Detail";
 import Home from "./routes/Home";
+import About from "./routes/About";
+import Navigation from "./components/Navigation";
+import "./App.css";
+
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/abot-us">
-          <h1>Hello</h1>
-        </Route>
-        <Route path="/movie/:id">
-          <Detail />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <HashRouter>
+      <Navigation />
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/" component={About} />
+      <Route path="/" component={Detail} />
+    </HashRouter>
   );
 }
 

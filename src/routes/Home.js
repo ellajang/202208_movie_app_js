@@ -8,7 +8,7 @@ function Home() {
   const getMovies = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9.0&sort_by=month`
       )
     ).json();
     setMovies(json.data.movies);
@@ -22,9 +22,9 @@ function Home() {
       {loading ? (
         <div className={styles.loadeer}>
           <span>Loading...</span>
-          </div>
-      ):(
-          <div className={styles.movies}>
+        </div>
+      ) : (
+        <div className={styles.movies}>
           {movies.map((movie) => (
             <Movie
               key={movie.id}
